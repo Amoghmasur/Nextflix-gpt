@@ -12,10 +12,13 @@ const MainContainer = () => {
 
     const mainMovies=movies[0]
     console.log(mainMovies)
+
+    const{original_title,overview}=mainMovies
+
   return (
     <div>
      <VideoBackground/>
-     <VideoTitle/>
+     <VideoTitle title={original_title} overview={overview}/>
     </div>
   )
 }
