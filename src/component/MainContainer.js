@@ -8,7 +8,8 @@ const MainContainer = () => {
     const movies=useSelector((store)=>store.movies?.nowPlayingMovies)
 
     //early return
-    if (!movies)return
+    if (!movies) return
+
     const mainMovies=movies[0]
     const{original_title,overview,id}=mainMovies
 
