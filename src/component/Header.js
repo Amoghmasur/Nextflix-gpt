@@ -49,7 +49,7 @@ const Header = () => {
 },[])
 
     const handleGptSearchClick=()=>{
-      dispatch(toggleGptSearchView)
+      dispatch(toggleGptSearchView())
     }
 
   return (
