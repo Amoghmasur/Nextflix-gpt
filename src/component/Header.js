@@ -56,8 +56,9 @@ const Header = () => {
         src='https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png'
         alt='logo'/>
         {user && (
-        <div className='flex bg-red-500 hover:bg-red-600 h-12 mt-5 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>
-          <button onClick={handleSignout}>Sign out</button>
+        <div className='flex p-5'>
+          <button className='py-2 px-4 my-3 mx-2 bg-purple-800 text-white font-bold rounded-lg'>Gpt search</button>
+          <button className='py-2 px-4 my-3 mx-2 bg-red-500 hover:bg-red-300  text-white font-bold rounded-lg' onClick={handleSignout}>Sign out</button>
         </div>
         )}
     </div>
