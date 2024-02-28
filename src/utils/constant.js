@@ -17,9 +17,9 @@ export const SUPPORTED_LANGUAGES=[
   {identifier:'spanish',name:'Spanish'},
 ]
 
-// export const Open_api_key='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'
+export const Open_api_key='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'
 
 
-export const Open_api_key=process.env.REACT_APP_OPEN_API
+// export const Open_api_key=process.env.REACT_APP_OPEN_API
 
 
