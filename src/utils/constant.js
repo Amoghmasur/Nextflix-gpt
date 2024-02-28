@@ -8,4 +8,9 @@ export const tmdb_api_options = {
 
 
 
-  export const Image_CDN='https://image.tmdb.org/t/p/w780'
+export const Image_CDN='https://image.tmdb.org/t/p/w780'
+
+
+export const SUPPORTED_LANGUAGES=[{identifier:'en', name:'English'},
+   {identifier:'hindi',name:'Hindi'},
+  {identifier:'spanish',name:'Spanish'},]

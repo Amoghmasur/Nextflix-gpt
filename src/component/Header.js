@@ -5,6 +5,8 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { useDispatch, useSelector } from 'react-redux'
 import { adduser, removeuser } from '../utils/userSlice'
 import { toggleGptSearchView } from '../utils/gptSlice'
+import { SUPPORTED_LANGUAGES } from '../utils/constant'
+import { changeLanguage } from '../utils/configSlice'
 
 
 
@@ -22,6 +24,10 @@ const Header = () => {
     .catch((error)=>{
       navigate('/error')
     })
+  }
+
+  const handleLanguage=(e)=>{
+       dispatch(changeLanguage(e.target.value))
   }
 
 
@@ -60,6 +66,11 @@ const Header = () => {
         alt='logo'/>
         {user && (
         <div className='flex p-5'>
+          <select className='p-2 m-2 bg-gray-800 text-white rounded-lg' onChange={handleLanguage}>
+            {SUPPORTED_LANGUAGES.map((lang)=>(
+              <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>
+            ))}
+          </select>
           <button className='py-2 px-4 my-3 mx-2 bg-purple-800 text-white font-bold rounded-lg' onClick={handleGptSearchClick}>Gpt search</button>
           <button className='py-2 px-4 my-3 mx-2 bg-red-500 hover:bg-red-300  text-white font-bold rounded-lg' onClick={handleSignout}>Sign out</button>
         </div>
