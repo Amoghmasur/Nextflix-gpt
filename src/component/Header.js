@@ -16,6 +16,7 @@ const Header = () => {
   const navigate=useNavigate()
   const dispatch=useDispatch()
   const user=useSelector((store)=>store.user)
+  const showGptSearch=useSelector((store)=> store.gpt.showGptSearch)
 
   const handleSignout=()=>{
     signOut(auth)
@@ -26,9 +27,7 @@ const Header = () => {
     })
   }
 
-  const handleLanguage=(e)=>{
-       dispatch(changeLanguage(e.target.value))
-  }
+
 
 
   useEffect(()=>{
@@ -54,6 +53,11 @@ const Header = () => {
       return ()=>unsubscribe()
 },[])
 
+
+  const handleLanguage=(e)=>{
+    dispatch(changeLanguage(e.target.value))
+  }
+
     const handleGptSearchClick=()=>{
       dispatch(toggleGptSearchView())
     }
@@ -66,12 +70,15 @@ const Header = () => {
         alt='logo'/>
         {user && (
         <div className='flex p-5'>
+          {showGptSearch && (
           <select className='p-2 m-2 bg-gray-800 text-white rounded-lg' onChange={handleLanguage}>
             {SUPPORTED_LANGUAGES.map((lang)=>(
               <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>
             ))}
           </select>
-          <button className='py-2 px-4 my-3 mx-2 bg-purple-800 text-white font-bold rounded-lg' onClick={handleGptSearchClick}>Gpt search</button>
+          )}
+          <button className='py-2 px-4 my-3 mx-2 bg-purple-800 text-white font-bold rounded-lg' onClick={handleGptSearchClick}>{showGptSearch ? 'HomePage':"Gpt Search"}</button>
+
           <button className='py-2 px-4 my-3 mx-2 bg-red-500 hover:bg-red-300  text-white font-bold rounded-lg' onClick={handleSignout}>Sign out</button>
         </div>
         )}

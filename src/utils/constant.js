@@ -11,6 +11,15 @@ export const tmdb_api_options = {
 export const Image_CDN='https://image.tmdb.org/t/p/w780'
 
 
-export const SUPPORTED_LANGUAGES=[{identifier:'en', name:'English'},
-   {identifier:'hindi',name:'Hindi'},
-  {identifier:'spanish',name:'Spanish'},]
+export const SUPPORTED_LANGUAGES=[
+  {identifier:'en', name:'English'},
+  {identifier:'hindi',name:'Hindi'},
+  {identifier:'spanish',name:'Spanish'},
+]
+
+export const Open_api_key='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'
+
+
+
+
+
