@@ -22,7 +22,9 @@ const GptSearchBar = () => {
 
   const handleGptSearchClick = async () =>{
 
-    const gptquery='act as a movie recommendation system and suggest some movies for the query'+ searchText.current.value + 'give me only 5 top movies,comma seperated'
+    const gptquery='act as a movie recommendation system and suggest some movies for the query:'+
+    searchText.current.value +
+    'give me only 5 top movies,comma seperated like the example result give ahead. Example result: gadar, sholay, mad max ,terminator, deadpool'
 
     const gptResults = await openai.chat.completions.create({
       messages: [{ role: 'user', content: gptquery }],
@@ -36,7 +38,7 @@ const GptSearchBar = () => {
     const tmbdresults= await Promise.all(promiseArray)
     console.log(tmbdresults)
 
-   dispatch(addGptMovieResults({movieNames:gptMovies,movieresults: tmbdresults}))
+   dispatch(addGptMovieResults({movieNames:gptMovies,movieResults: tmbdresults}))
 
   }
 
