@@ -1,11 +1,8 @@
 import React, { useState,useRef } from 'react'
 import Header from './Header'
 import { checkValiddata } from '../utils/validate'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from '../utils/firebase'
-
-
-
 
 
 const Login = () => {
@@ -14,7 +11,7 @@ const Login = () => {
 
   const[errorMessage,seterrorMessage]=useState(null)
 
-
+  const [successMessage, setSuccessMessage] = useState(null)
 
   const name=useRef(null)
   const email=useRef(null)
@@ -22,11 +19,17 @@ const Login = () => {
 
 
 
+
+
   const handleButtonClick=()=>{
     const message=checkValiddata(email.current.value,password.current.value)
     seterrorMessage(message)
 
-    if (message)return
+    if (!message) {
+      setSuccessMessage("User successfully signed up!"); // Set success message
+    }
+
+    if (message) return
 
     if (!isSignInForm){
       createUserWithEmailAndPassword(auth,
@@ -36,6 +39,9 @@ const Login = () => {
       .then((userCredential) => {
       // Signed up
       const user = userCredential.user;
+      updateProfile(user,{
+        displayName:name.current.value
+      })
 
       // ...
   })
@@ -105,6 +111,7 @@ const Login = () => {
             className='p-4 my-2 w-full bg-gray-600 bg-opacity-70 rounded-md'
            />
            <p className='text-red-600 font-bold text-lg'>{errorMessage}</p>
+           <p className='text-green-600 font-bold text-lg'>{successMessage}</p>
           <button className='p-4 my-6 bg-red-600 w-full rounded-lg' onClick={handleButtonClick}>
            {isSignInForm? "Sign In":"Sign Up"}
           </button>

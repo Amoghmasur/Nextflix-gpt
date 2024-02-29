@@ -3,9 +3,7 @@ import Browse from './Browse'
 import Login from './Login'
 
 
-
 function Body() {
-
 
     const appRouter=createBrowserRouter([
         {
@@ -15,8 +13,9 @@ function Body() {
         {
             path:'/browse',
             element:<Browse/>
-        }
+        },
     ])
+
 
 
   return (
