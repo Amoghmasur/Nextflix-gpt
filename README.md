@@ -1,3 +1,5 @@
+Deployed on vercel do check out : https://nextflix-gpt-amoghmasur.vercel.app/
+
 #netflix-gpt
 
 -create-react-app
