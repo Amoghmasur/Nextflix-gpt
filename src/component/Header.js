@@ -64,12 +64,12 @@ const Header = () => {
 
   return (
 
-    <div className='fixed z-50 w-screen px-8 py-2 bg-gradient-to-b from-black flex flex-col md:flex-row justify-between'>
-        <img className=" w-44 px-22 ml-16 py-4"
+    <div className='fixed z-50 w-screen px-8 py-2 bg-gradient-to-b from-black flex flex-col md:flex-row justify-between sm:px-6 md:px-8'>
+        <img className=" w-44 px-22 ml-16 py-4 sm:w-44  sm:px-22"
         src='https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png'
         alt='logo'/>
         {user && (
-        <div className='flex p-5'>
+        <div className='flex p-2 sm:p-5'>
           {showGptSearch && (
           <select className='p-2 m-2 bg-gray-800 text-white rounded-lg' onChange={handleLanguage}>
             {SUPPORTED_LANGUAGES.map((lang)=>(
@@ -77,7 +77,7 @@ const Header = () => {
             ))}
           </select>
           )}
-          <button className='py-2 px-4 my-3 mx-2 bg-purple-800 text-white font-bold rounded-lg' onClick={handleGptSearchClick}>{showGptSearch ? 'HomePage':"Gpt Search"}</button>
+          <button className='py-2 px-4 my-3 mx-2  bg-purple-800 text-white font-bold rounded-lg' onClick={handleGptSearchClick}>{showGptSearch ? 'HomePage':"Gpt Search"}</button>
 
           <button className='py-2 px-4 my-3 mx-2 bg-red-500 hover:bg-red-300  text-white font-bold rounded-lg' onClick={handleSignout}>Sign out</button>
         </div>
